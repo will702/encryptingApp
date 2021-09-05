@@ -1,5 +1,5 @@
 <Screen1>:
-
+    BackgroundLayer
     MDCard:
 
         border_radius: 20
@@ -75,3 +75,23 @@
         size_hint_y:None
 
         height:100
+#:import Window kivy.core.window.Window
+
+
+
+
+#:import utils kivy.utils.get_color_from_hex
+
+<BackgroundLayer@BoxLayout>:
+    orientation:'vertical'
+    BoxLayout:
+        orientation:'vertical'
+        canvas.before:
+            Color:
+                rgba:utils("#289fbd")
+            RoundedRectangle:
+                pos:self.pos
+                size:self.size
+                radius:[0,0,40,40]
+    BoxLayout:
+        orientation:'horizontal'
