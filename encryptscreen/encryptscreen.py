@@ -15,12 +15,29 @@ from kivymd.uix.button import MDRaisedButton
 from kivy.uix.boxlayout import BoxLayout
 import os.path
 from kivymd.app import App
+from kivy.utils import platform
 from screen1 import Screen1
 
 from plyer import filechooser
 
 class EncryptScreen(MDScreen):
+    def get_permission(self):
+        try:
+
+            if platform == 'android':
+                from android.permissions import Permission, request_permissions
+                def callback(permission, results):
+                    if all([res for res in results]):
+                        pass
+                    else:
+                        pass
+
+                request_permissions(
+                    [Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE], callback)
+        except:
+            pass
     def choose_decrypt_file(self):
+        self.get_permission()
         filechooser.open_file(on_selection=self.handle_selection_decrypt_file)
     def handle_selection_decrypt_file(self,selection):
         self.path_decrypt = selection[0]
@@ -35,6 +52,7 @@ class EncryptScreen(MDScreen):
 
 
     def choose_file(self):
+        self.get_permission()
         filechooser.open_file(on_selection=self.handle_selection)
 
     def handle_selection(self, selection):
