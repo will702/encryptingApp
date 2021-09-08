@@ -3,7 +3,7 @@
 # (str) Title of your application
 title = Encryptor
 # (str) Package name
-package.name =  encryptor
+package.name =  encryption
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.encryptor
@@ -89,7 +89,6 @@ android.accept_sdk_license = True
 #android.presplash_lottie = "icon_locator.json"
 
 android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
-
 # (int) Target Android API, should be as high as possible.
 android.api = 29
 presplash.filename = %(source.dir)s/logo.png
